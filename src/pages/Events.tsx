@@ -10,13 +10,6 @@ const upcoming = [
     desc: "Swiss national youth team competing at the IMMAF Youth World Championships.",
     image: "/august.png",
   },
-  {
-    title: "Swiss MMA National Championships 2026",
-    date: "September 2026",
-    location: "Switzerland",
-    desc: "The annual Swiss MMA National Championships bringing together top fighters from across the country.",
-    image: "/september.png",
-  },
 ];
 
 
