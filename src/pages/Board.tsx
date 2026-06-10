@@ -28,27 +28,32 @@ const Board = () => (
     </section>
 
     <section className="section-padding bg-background">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {boardMembers.map((member, i) => (
-          <AnimatedSection key={i} delay={i * 0.1}>
-            <div className="border border-border p-8 hover-lift group">
-              <div className="w-28 h-28 bg-muted flex items-center justify-center mb-6 mx-auto overflow-hidden rounded-full">
-                {member.photo ? (
-                  <img src={member.photo} alt={member.name} className="w-full h-full object-cover" style={{ objectPosition: member.photoPosition || "center" }} />
-                ) : (
-                  <User size={32} className="text-muted-foreground" />
-                )}
+      <div className="max-w-4xl mx-auto">
+        <AnimatedSection>
+          <div className="border border-border overflow-hidden">
+            <div className="flex flex-col md:flex-row">
+              <div className="md:w-64 lg:w-72 flex-shrink-0">
+                <img
+                  src={luigiPerillo}
+                  alt="Luigi Perillo"
+                  className="w-full h-72 md:h-full object-cover"
+                  style={{ objectPosition: "50% 25%" }}
+                />
               </div>
-              <div className="text-center">
-                <h3 className="font-heading text-2xl text-foreground">{member.name}</h3>
-                <p className="font-body text-primary text-sm font-semibold uppercase tracking-wider mt-1 mb-4 whitespace-pre-line">
-                  {member.role}
-                </p>
-                <p className="font-body text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
+              <div className="p-8 lg:p-10">
+                <p className="font-body text-primary text-sm font-semibold uppercase tracking-wider mb-2">President</p>
+                <h2 className="font-heading text-3xl lg:text-4xl text-foreground mb-6">Luigi Perillo</h2>
+                <div className="space-y-4 font-body text-muted-foreground text-sm leading-relaxed">
+                  <p>Luigi Perillo is the Founder and President of the Swiss Mixed Martial Arts Federation (SMMAF), the first MMA federation in Switzerland officially recognized by governmental authorities.</p>
+                  <p>He currently serves as President of SMMAF and IMMAF Switzerland, leading the national structure of amateur MMA in close alignment with the International Mixed Martial Arts Federation (IMMAF). Under his leadership, SMMAF operates as the central organization for MMA in Switzerland, uniting clubs, athletes, and coaches across all linguistic regions of the country.</p>
+                  <p>His concrete contribution to SMMAF includes building a unified national system for amateur MMA, integrating previously fragmented regional communities into one coordinated federation structure. He established governance standards, athlete development pathways, and official communication between Swiss MMA clubs and international bodies.</p>
+                  <p>Luigi Perillo continues to play a direct operational role in strengthening the federation's structure, expanding its international recognition, and positioning Switzerland as one of the key hubs for organized amateur MMA in Europe.</p>
+                  <p>Alongside his work within SMMAF and IMMAF, Luigi is also the founder of Superbia Management SA and The Golden Cage, organizations that support athletes at every stage of their careers and help create pathways to the world's leading MMA promotions.</p>
+                </div>
               </div>
             </div>
-          </AnimatedSection>
-        ))}
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   </div>
