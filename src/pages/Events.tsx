@@ -70,6 +70,44 @@ const Events = () => (
       </div>
     </section>
 
+    {/* Schedule */}
+    <section className="section-padding bg-accent">
+      <div className="max-w-5xl mx-auto">
+        <AnimatedSection className="mb-12">
+          <h2 className="font-heading text-3xl md:text-4xl text-accent-foreground mb-2">Schedule 2026</h2>
+          <div className="red-accent-line" />
+        </AnimatedSection>
+
+        <div className="space-y-3">
+          {[
+            { title: "Swiss Cup September", location: "Lausanne", date: "Date — TBC" },
+            { title: "Swiss Cup October", location: "Lugano", date: "Date — TBC" },
+            { title: "Swiss Cup December", location: "Geneva", date: "Date — TBC" },
+            { title: "Referees and Judges Courses", location: "", date: "TBC" },
+          ].map((item, i) => (
+            <AnimatedSection key={i} delay={i * 0.05}>
+              <div className="border border-accent-foreground/10 px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 hover:border-primary transition-colors">
+                <div className="flex items-center gap-4">
+                  <div className="w-2 h-2 bg-primary flex-shrink-0" />
+                  <div>
+                    <span className="font-heading text-lg text-accent-foreground">{item.title}</span>
+                    {item.location && (
+                      <span className="font-body text-sm text-accent-foreground/50 ml-3 flex-shrink-0">
+                        <MapPin size={12} className="inline mr-1" />{item.location}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <span className="font-body text-sm text-primary font-medium flex-shrink-0 ml-6 sm:ml-0">
+                  {item.date}
+                </span>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+
   </div>
 );
 
