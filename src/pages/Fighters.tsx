@@ -33,7 +33,6 @@ const fighters: Fighter[] = [
 
 const leadership = [
   { name: "Luigi Perillo", role: "President", photo: luigiPerillo as string | undefined, photoPosition: "30% 25%" },
-  { name: "Isa Usupov", role: "Vice President\nHead Coach", photo: undefined as string | undefined, photoPosition: "center 20%" },
 ];
 
 const pathway = ["Youth", "Amateur", "Elite", "National Team", "International Competition"];
