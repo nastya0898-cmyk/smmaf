@@ -13,11 +13,6 @@ type Member = {
 
 const boardMembers: Member[] = [
   { name: "Luigi Perillo", role: "President", bio: "Entrepreneur, sports manager, and consultant known for his impact on MMA and combat sports in Europe. He is Co-President of Bare Knuckle Fighting Championship Italy and President of Icon Holding SA.", photo: luigiPerillo, photoPosition: "50% 25%" },
-  { name: "Isa Usupov", role: "Vice President\nHead Coach", bio: "Sports management professional with extensive experience in athlete development programs." },
-  { name: "Marco Keller", role: "Technical Director", bio: "Black belt in Brazilian Jiu-Jitsu and certified MMA coach. Oversees training standards and competition rules." },
-  { name: "Sophie Brunner", role: "Secretary General", bio: "Legal and administrative expert ensuring compliance with Swiss sports law and IMMAF regulations." },
-  { name: "David Fischer", role: "Head of Events", bio: "Event management specialist responsible for organizing national championships and international team logistics." },
-  { name: "Elena Roth", role: "Athlete Representative", bio: "Active national team fighter advocating for athlete welfare, anti-doping protocols, and fair competition standards." },
 ];
 
 const Board = () => (

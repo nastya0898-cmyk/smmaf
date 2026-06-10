@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Youtube, Mail } from "lucide-react";
+import { Instagram, Facebook, Mail } from "lucide-react";
 import swissFlag from "@/assets/swiss-flag.png";
 
 const Footer = () => (
@@ -34,15 +34,28 @@ const Footer = () => (
         <div>
           <h4 className="font-heading text-lg mb-4 tracking-wider">Follow Us</h4>
           <div className="flex gap-4">
-            {[Instagram, Facebook, Youtube, Mail].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="w-10 h-10 border border-accent-foreground/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
-              >
-                <Icon size={18} />
-              </a>
-            ))}
+            <a
+              href="https://www.instagram.com/smmafed/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 border border-accent-foreground/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
+            >
+              <Instagram size={18} />
+            </a>
+            <a
+              href="https://www.facebook.com/smmafed/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 border border-accent-foreground/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
+            >
+              <Facebook size={18} />
+            </a>
+            <a
+              href="mailto:Info@mmasf.org"
+              className="w-10 h-10 border border-accent-foreground/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
+            >
+              <Mail size={18} />
+            </a>
           </div>
         </div>
       </div>

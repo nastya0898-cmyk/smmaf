@@ -72,7 +72,7 @@ const Contact = () => {
             <h2 className="font-heading text-3xl text-foreground mb-6">Info</h2>
             <div className="space-y-6">
               {[
-                { icon: Mail, label: "Email", value: "info@swissmma.ch" },
+                { icon: Mail, label: "Email", value: "Info@mmasf.org" },
                 { icon: Phone, label: "Phone", value: "+41 44 000 00 00" },
                 { icon: MapPin, label: "Address", value: "Swiss MMA Federation\nZurich, Switzerland" },
               ].map((item, i) => (
