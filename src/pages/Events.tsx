@@ -75,6 +75,7 @@ const Events = () => (
           {[
             { title: "Swiss Cup September", location: "Lausanne", date: "Date — TBC" },
             { title: "Swiss Cup October", location: "Lugano", date: "Saturday 14 November" },
+            { title: "Lugano in the Cage 9", location: "Lugano", date: "Saturday 14 November" },
             { title: "Swiss Cup December", location: "Geneva", date: "Date — TBC" },
             { title: "Referees and Judges Courses", location: "", date: "TBC" },
           ].map((item, i) => (
