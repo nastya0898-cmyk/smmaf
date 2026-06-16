@@ -16,9 +16,12 @@ const Contact = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           access_key: "7a35a86a-ee1a-497b-abe2-7a46ba7e2265",
+          subject: "New message from SMMAF website",
+          from_name: form.name,
           name: form.name,
           email: form.email,
           message: form.message,
+          botcheck: false,
         }),
       });
       const data = await res.json();
@@ -26,9 +29,11 @@ const Contact = () => {
         toast.success("Message sent! We'll get back to you soon.");
         setForm({ name: "", email: "", message: "" });
       } else {
-        toast.error("Failed to send message. Please try again.");
+        console.error("Web3Forms error:", data);
+        toast.error(data.message ?? "Failed to send message. Please try again.");
       }
-    } catch {
+    } catch (err) {
+      console.error("Contact form error:", err);
       toast.error("Failed to send message. Please try again.");
     } finally {
       setSubmitting(false);
