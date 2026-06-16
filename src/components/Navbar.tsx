@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import swissFlag from "@/assets/swiss-flag.png";
@@ -19,6 +19,17 @@ const navLinks: { to: string; label: string; isHash?: boolean }[] = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleMembershipClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
+    if (location.pathname === "/") {
+      document.getElementById("membership")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate({ pathname: "/", hash: "#membership" });
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-accent/95 backdrop-blur-md border-b border-primary/20">
@@ -38,6 +49,7 @@ const Navbar = () => {
                 <a
                   key={link.to}
                   href={link.to}
+                  onClick={handleMembershipClick}
                   className="font-body text-sm font-medium tracking-wider uppercase transition-colors duration-200 text-primary-foreground/70 hover:text-primary-foreground"
                 >
                   {link.label}
@@ -83,7 +95,7 @@ const Navbar = () => {
                   <a
                     key={link.to}
                     href={link.to}
-                    onClick={() => setIsOpen(false)}
+                    onClick={handleMembershipClick}
                     className="block font-body text-sm font-medium tracking-wider uppercase py-2 text-primary-foreground/70"
                   >
                     {link.label}

@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Shield, Trophy, Users, ChevronDown, Flame, Target, Swords } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 import fighterDetail from "@/assets/fighter-detail.jpg";
 import trainingGym from "@/assets/training-gym.jpg";
@@ -36,6 +36,15 @@ const pillars = [
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#membership") {
+      setTimeout(() => {
+        document.getElementById("membership")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location.hash]);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],

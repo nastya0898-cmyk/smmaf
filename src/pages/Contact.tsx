@@ -5,11 +5,34 @@ import { toast } from "sonner";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! We'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "7a35a86a-ee1a-497b-abe2-7a46ba7e2265",
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success("Message sent! We'll get back to you soon.");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch {
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -61,9 +84,10 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="bg-primary text-primary-foreground font-body font-semibold text-sm tracking-wider uppercase px-8 py-4 hover:bg-primary/90 transition-colors w-full"
+                disabled={submitting}
+                className="bg-primary text-primary-foreground font-body font-semibold text-sm tracking-wider uppercase px-8 py-4 hover:bg-primary/90 transition-colors w-full disabled:opacity-60"
               >
-                Send Message
+                {submitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </AnimatedSection>
