@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { toast } from "sonner";
 
 const Contact = () => {
@@ -73,8 +73,7 @@ const Contact = () => {
             <div className="space-y-6">
               {[
                 { icon: Mail, label: "Email", value: "Info@mmasf.org" },
-                { icon: Phone, label: "Phone", value: "+41 44 000 00 00" },
-                { icon: MapPin, label: "Address", value: "Swiss MMA Federation\nZurich, Switzerland" },
+                { icon: MapPin, label: "Address", value: "Via Toveda n.3\n6535 Roveredo - Switzerland - Canton of Grisons" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/10 flex items-center justify-center flex-shrink-0">

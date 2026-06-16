@@ -199,6 +199,34 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════════ MEMBERSHIP ═══════════════ */}
+      <section id="membership" className="section-padding bg-accent">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection className="text-center mb-16">
+            <div className="red-accent-line mx-auto mb-4" />
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white">Membership</h2>
+            <p className="font-body text-white/50 mt-4 max-w-lg mx-auto text-sm">
+              Become a member of the Swiss MMA Federation.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto">
+            <AnimatedSection delay={0.1}>
+              <div className="border border-white/10 p-10 lg:p-12 text-center hover-lift bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-500">
+                <p className="font-heading text-6xl text-primary mb-3">50 CHF</p>
+                <p className="font-body text-sm text-white/50 uppercase tracking-[0.2em]">Physical Person</p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <div className="border border-white/10 p-10 lg:p-12 text-center hover-lift bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-500">
+                <p className="font-heading text-6xl text-primary mb-3">125 CHF</p>
+                <p className="font-body text-sm text-white/50 uppercase tracking-[0.2em]">Gym</p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════════ CTA ═══════════════ */}
       <section className="relative py-28 md:py-36 overflow-hidden bg-primary">
         {/* Diagonal accent */}

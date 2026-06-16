@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import swissFlag from "@/assets/swiss-flag.png";
 
-const navLinks = [
+const navLinks: { to: string; label: string; isHash?: boolean }[] = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/board", label: "Board" },
   { to: "/fighters", label: "Fighters" },
   { to: "/events", label: "Events" },
-  
+  { to: "/#membership", label: "Membership", isHash: true },
   { to: "/register", label: "Register" },
   { to: "/sponsor", label: "Sponsor" },
   { to: "/contact", label: "Contact" },
@@ -33,19 +33,29 @@ const Navbar = () => {
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`font-body text-sm font-medium tracking-wider uppercase transition-colors duration-200 ${
-                  location.pathname === link.to
-                    ? "text-primary"
-                    : "text-primary-foreground/70 hover:text-primary-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.isHash ? (
+                <a
+                  key={link.to}
+                  href={link.to}
+                  className="font-body text-sm font-medium tracking-wider uppercase transition-colors duration-200 text-primary-foreground/70 hover:text-primary-foreground"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`font-body text-sm font-medium tracking-wider uppercase transition-colors duration-200 ${
+                    location.pathname === link.to
+                      ? "text-primary"
+                      : "text-primary-foreground/70 hover:text-primary-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
 
           {/* Mobile toggle */}
@@ -68,20 +78,31 @@ const Navbar = () => {
             className="lg:hidden bg-accent border-t border-primary/20"
           >
             <div className="px-6 py-4 space-y-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setIsOpen(false)}
-                  className={`block font-body text-sm font-medium tracking-wider uppercase py-2 ${
-                    location.pathname === link.to
-                      ? "text-primary"
-                      : "text-primary-foreground/70"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.isHash ? (
+                  <a
+                    key={link.to}
+                    href={link.to}
+                    onClick={() => setIsOpen(false)}
+                    className="block font-body text-sm font-medium tracking-wider uppercase py-2 text-primary-foreground/70"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setIsOpen(false)}
+                    className={`block font-body text-sm font-medium tracking-wider uppercase py-2 ${
+                      location.pathname === link.to
+                        ? "text-primary"
+                        : "text-primary-foreground/70"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </div>
           </motion.div>
         )}
