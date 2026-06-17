@@ -60,9 +60,20 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-accent-foreground/10 mt-12 pt-8 text-center">
+      <div className="border-t border-accent-foreground/10 mt-12 pt-8 text-center space-y-2">
         <p className="font-body text-xs text-accent-foreground/40">
           © {new Date().getFullYear()} Swiss MMA Federation. All rights reserved.
+        </p>
+        <p className="font-body text-xs text-accent-foreground/30">
+          Website created by{" "}
+          <a
+            href="https://boldlinesmm.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors"
+          >
+            Boldline
+          </a>
         </p>
       </div>
     </div>

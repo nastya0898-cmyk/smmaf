@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Shield, Trophy, Users, ChevronDown, Flame, Target, Swords } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 import fighterDetail from "@/assets/fighter-detail.jpg";
 import trainingGym from "@/assets/training-gym.jpg";
@@ -36,6 +36,15 @@ const pillars = [
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#membership") {
+      setTimeout(() => {
+        document.getElementById("membership")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location.hash]);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -196,6 +205,34 @@ const Index = () => {
               Train Like a <span className="text-primary">Champion</span>
             </h2>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ═══════════════ MEMBERSHIP ═══════════════ */}
+      <section id="membership" className="section-padding bg-accent">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection className="text-center mb-16">
+            <div className="red-accent-line mx-auto mb-4" />
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white">Membership</h2>
+            <p className="font-body text-white/50 mt-4 max-w-lg mx-auto text-sm">
+              Become a member of the Swiss MMA Federation.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto">
+            <AnimatedSection delay={0.1}>
+              <div className="border border-white/10 p-10 lg:p-12 text-center hover-lift bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-500">
+                <p className="font-heading text-6xl text-primary mb-3">50 CHF</p>
+                <p className="font-body text-sm text-white/50 uppercase tracking-[0.2em]">Physical Person</p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <div className="border border-white/10 p-10 lg:p-12 text-center hover-lift bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-500">
+                <p className="font-heading text-6xl text-primary mb-3">125 CHF</p>
+                <p className="font-body text-sm text-white/50 uppercase tracking-[0.2em]">Gym</p>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

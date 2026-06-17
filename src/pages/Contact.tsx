@@ -1,15 +1,43 @@
 import { useState, FormEvent } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { toast } from "sonner";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! We'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "7a35a86a-ee1a-497b-abe2-7a46ba7e2265",
+          subject: "New message from SMMAF website",
+          from_name: form.name,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          botcheck: false,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success("Message sent! We'll get back to you soon.");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        console.error("Web3Forms error:", data);
+        toast.error(data.message ?? "Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      console.error("Contact form error:", err);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -61,9 +89,10 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="bg-primary text-primary-foreground font-body font-semibold text-sm tracking-wider uppercase px-8 py-4 hover:bg-primary/90 transition-colors w-full"
+                disabled={submitting}
+                className="bg-primary text-primary-foreground font-body font-semibold text-sm tracking-wider uppercase px-8 py-4 hover:bg-primary/90 transition-colors w-full disabled:opacity-60"
               >
-                Send Message
+                {submitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </AnimatedSection>
@@ -73,8 +102,7 @@ const Contact = () => {
             <div className="space-y-6">
               {[
                 { icon: Mail, label: "Email", value: "Info@mmasf.org" },
-                { icon: Phone, label: "Phone", value: "+41 44 000 00 00" },
-                { icon: MapPin, label: "Address", value: "Swiss MMA Federation\nZurich, Switzerland" },
+                { icon: MapPin, label: "Address", value: "Via Toveda n.3\n6535 Roveredo - Switzerland - Canton of Grisons" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/10 flex items-center justify-center flex-shrink-0">
