@@ -219,17 +219,23 @@ const Index = () => {
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
             <AnimatedSection delay={0.1}>
               <div className="border border-white/10 p-10 lg:p-12 text-center hover-lift bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-500">
-                <p className="font-heading text-6xl text-primary mb-3">50 CHF</p>
-                <p className="font-body text-sm text-white/50 uppercase tracking-[0.2em]">Physical Person</p>
+                <p className="font-heading text-6xl text-primary mb-3">250 CHF</p>
+                <p className="font-body text-sm text-white/50 uppercase tracking-[0.2em]">Gym</p>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
               <div className="border border-white/10 p-10 lg:p-12 text-center hover-lift bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-500">
-                <p className="font-heading text-6xl text-primary mb-3">125 CHF</p>
-                <p className="font-body text-sm text-white/50 uppercase tracking-[0.2em]">Gym</p>
+                <p className="font-heading text-6xl text-primary mb-3">100 CHF</p>
+                <p className="font-body text-sm text-white/50 uppercase tracking-[0.2em]">Coach</p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.3}>
+              <div className="border border-white/10 p-10 lg:p-12 text-center hover-lift bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-500">
+                <p className="font-heading text-6xl text-primary mb-3">90 CHF</p>
+                <p className="font-body text-sm text-white/50 uppercase tracking-[0.2em]">Fighter</p>
               </div>
             </AnimatedSection>
           </div>
