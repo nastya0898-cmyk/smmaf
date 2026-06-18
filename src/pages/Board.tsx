@@ -1,6 +1,35 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import { User } from "lucide-react";
 
 import luigiPerillo from "@/assets/board-luigi-perillo.png";
+
+type Member = {
+  name: string;
+  role: string;
+  photo?: string;
+};
+
+const members: Member[] = [
+  {
+    name: "Maurizio Niceta",
+    role: "Director of the Ticino Region",
+  },
+  {
+    name: "Ivan Musardo Gracco",
+    role: "Director of the German-speaking Switzerland Region",
+    photo: "/Director%20of%20the%20German-speaking%20Switzerland%20Region%20-%20Ivan%20Musardo%20Gracco.jpeg",
+  },
+  {
+    name: "Alberto Bastianelli",
+    role: "Member of the Ethics Commission",
+    photo: "/Member%20of%20the%20Ethics%20Commission%20-%20Alberto%20Bastianelli.jpeg",
+  },
+  {
+    name: "Giovanni Tommaso Parisi",
+    role: "Treasurer",
+    photo: "/Giovanni%20Tommaso%20Parisi%20-%20Treasurer.jpeg",
+  },
+];
 
 const Board = () => (
   <div className="pt-20">
@@ -15,7 +44,8 @@ const Board = () => (
     </section>
 
     <section className="section-padding bg-background">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* President – full-width float card */}
         <AnimatedSection>
           <div className="border border-border p-8 lg:p-12 overflow-hidden">
             <img
@@ -41,6 +71,31 @@ const Board = () => (
             </div>
           </div>
         </AnimatedSection>
+
+        {/* Other board members – grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {members.map((member, i) => (
+            <AnimatedSection key={member.name} delay={i * 0.1}>
+              <div className="border border-border p-6 hover-lift group text-center h-full">
+                <div className="w-24 h-24 bg-muted flex items-center justify-center mb-5 mx-auto overflow-hidden rounded-full">
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <User size={28} className="text-muted-foreground" />
+                  )}
+                </div>
+                <p className="font-body text-primary text-xs font-semibold uppercase tracking-wider mb-2">
+                  {member.role}
+                </p>
+                <h3 className="font-heading text-xl text-foreground">{member.name}</h3>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
       </div>
     </section>
   </div>
