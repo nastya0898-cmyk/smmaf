@@ -3,7 +3,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { User, ChevronDown, ChevronUp } from "lucide-react";
 
 import luigiPerillo from "@/assets/board-luigi-perillo.png";
-import isaUsupov from "@/assets/board-isa-yusupov.png";
+import isaUsupov from "@/assets/board-isa-usupov.png";
 import ivanMusardoGracco from "@/assets/board-ivan-musardo-gracco.jpeg";
 import albertoBastianelli from "@/assets/board-alberto-bastianelli.jpeg";
 import giovanniParisi from "@/assets/board-giovanni-parisi.jpeg";
@@ -13,6 +13,7 @@ type Member = {
   name: string;
   role: string;
   photo?: string;
+  objectPosition?: string;
 };
 
 const members: Member[] = [
@@ -20,6 +21,7 @@ const members: Member[] = [
     name: "Isa Usupov",
     role: "Vice-President",
     photo: isaUsupov,
+    objectPosition: "center top",
   },
   {
     name: "Maurizio Niceta",
@@ -29,21 +31,25 @@ const members: Member[] = [
     name: "Anna Repchuk",
     role: "General Secretary",
     photo: annaRepchuk,
+    objectPosition: "center top",
   },
   {
     name: "Ivan Musardo Gracco",
     role: "Director of the German-speaking Switzerland Region",
     photo: ivanMusardoGracco,
+    objectPosition: "center top",
   },
   {
     name: "Alberto Bastianelli",
     role: "Member of the Ethics Commission",
     photo: albertoBastianelli,
+    objectPosition: "center top",
   },
   {
     name: "Giovanni Tommaso Parisi",
     role: "Treasurer",
     photo: giovanniParisi,
+    objectPosition: "center top",
   },
 ];
 
@@ -126,6 +132,7 @@ const Board = () => {
                         src={member.photo}
                         alt={member.name}
                         className="w-full h-full object-cover"
+                        style={{ objectPosition: member.objectPosition || "center top" }}
                       />
                     ) : (
                       <User size={28} className="text-muted-foreground" />
