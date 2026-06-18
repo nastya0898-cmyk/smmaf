@@ -151,7 +151,7 @@ const Register = () => {
             <div className="red-accent-line mb-4" />
             <h2 className="font-heading text-2xl md:text-3xl text-foreground mb-3">Registration Form</h2>
             <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
-              To receive more information and access to Federation documents, please fill in the form below.
+              For additional information, rankings, and official federation documents, please fill out the form below.
             </p>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
