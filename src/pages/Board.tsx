@@ -36,7 +36,7 @@ const members: Member[] = [
   },
   {
     name: "Maurizio Niceta",
-    role: "Director of the Ticino Region",
+    role: "Director of the Italian-speaking Switzerland Region",
   },
   {
     name: "George Gadelkarim",
