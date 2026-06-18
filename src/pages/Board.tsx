@@ -28,12 +28,6 @@ const members: Member[] = [
     role: "Director of the Ticino Region",
   },
   {
-    name: "Anna Repchuk",
-    role: "General Secretary",
-    photo: annaRepchuk,
-    objectPosition: "center top",
-  },
-  {
     name: "Ivan Musardo Gracco",
     role: "Director of the German-speaking Switzerland Region",
     photo: ivanMusardoGracco,
@@ -49,6 +43,12 @@ const members: Member[] = [
     name: "Giovanni Tommaso Parisi",
     role: "Treasurer",
     photo: giovanniParisi,
+    objectPosition: "center top",
+  },
+  {
+    name: "Anna Repchuk",
+    role: "General Secretary",
+    photo: annaRepchuk,
     objectPosition: "center top",
   },
 ];
