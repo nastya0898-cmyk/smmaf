@@ -25,14 +25,28 @@ const members: Member[] = [
     objectPosition: "center top",
   },
   {
-    name: "Maurizio Niceta",
-    role: "Director of the Ticino Region",
-  },
-  {
     name: "Ivan Musardo Gracco",
     role: "Director of the German-speaking Switzerland Region",
     photo: ivanMusardoGracco,
     objectPosition: "center top",
+  },
+  {
+    name: "Marcos Simões",
+    role: "Director of the French-speaking Switzerland Region",
+  },
+  {
+    name: "Maurizio Niceta",
+    role: "Director of the Ticino Region",
+  },
+  {
+    name: "George Gadelkarim",
+    role: "Head Coach",
+    photo: georgeGadelkarim,
+    objectPosition: "center top",
+  },
+  {
+    name: "Jordan Aigner",
+    role: "Technical Director",
   },
   {
     name: "Alberto Bastianelli",
@@ -44,20 +58,6 @@ const members: Member[] = [
     name: "Giovanni Tommaso Parisi",
     role: "Treasurer",
     photo: giovanniParisi,
-    objectPosition: "center top",
-  },
-  {
-    name: "Jordan Aigner",
-    role: "Technical Director",
-  },
-  {
-    name: "Marcos Simões",
-    role: "Director of the French-speaking Switzerland Region",
-  },
-  {
-    name: "George Gadelkarim",
-    role: "Head Coach",
-    photo: georgeGadelkarim,
     objectPosition: "center top",
   },
   {
