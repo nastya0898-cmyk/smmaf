@@ -149,7 +149,10 @@ const Register = () => {
 
           <AnimatedSection delay={0.1}>
             <div className="red-accent-line mb-4" />
-            <h2 className="font-heading text-2xl md:text-3xl text-foreground mb-6">Registration Form</h2>
+            <h2 className="font-heading text-2xl md:text-3xl text-foreground mb-3">Registration Form</h2>
+            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
+              Для получения большей информации и доступ к документам Федерации заполните форму ниже.
+            </p>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="font-body text-sm text-muted-foreground uppercase tracking-wider block mb-2">Role</label>
