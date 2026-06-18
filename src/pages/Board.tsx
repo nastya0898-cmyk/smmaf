@@ -5,6 +5,7 @@ import luigiPerillo from "@/assets/board-luigi-perillo.png";
 import ivanMusardoGracco from "@/assets/board-ivan-musardo-gracco.jpeg";
 import albertoBastianelli from "@/assets/board-alberto-bastianelli.jpeg";
 import giovanniParisi from "@/assets/board-giovanni-parisi.jpeg";
+import annaRepchuk from "@/assets/board-anna-repchuk.jpeg";
 
 type Member = {
   name: string;
@@ -16,6 +17,11 @@ const members: Member[] = [
   {
     name: "Maurizio Niceta",
     role: "Director of the Ticino Region",
+  },
+  {
+    name: "Anna Repchuk",
+    role: "General Secretary",
+    photo: annaRepchuk,
   },
   {
     name: "Ivan Musardo Gracco",
