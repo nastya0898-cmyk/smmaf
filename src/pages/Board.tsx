@@ -82,7 +82,7 @@ const Board = () => (
         </AnimatedSection>
 
         {/* Other board members – grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {members.map((member, i) => (
             <AnimatedSection key={member.name} delay={i * 0.1}>
               <div className="border border-border p-6 hover-lift group text-center h-full">
