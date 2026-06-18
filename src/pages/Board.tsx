@@ -8,6 +8,7 @@ import ivanMusardoGracco from "@/assets/board-ivan-musardo-gracco.jpeg";
 import albertoBastianelli from "@/assets/board-alberto-bastianelli.jpeg";
 import giovanniParisi from "@/assets/board-giovanni-parisi.jpeg";
 import annaRepchuk from "@/assets/board-anna-repchuk.jpeg";
+import georgeGadelkarim from "@/assets/board-george-gadelkarim.jpeg";
 
 type Member = {
   name: string;
@@ -46,9 +47,32 @@ const members: Member[] = [
     objectPosition: "center top",
   },
   {
+    name: "Jordan Aigner",
+    role: "Technical Director",
+  },
+  {
+    name: "Marcos Simões",
+    role: "Director of the French-speaking Switzerland Region",
+  },
+  {
     name: "Anna Repchuk",
     role: "General Secretary",
     photo: annaRepchuk,
+    objectPosition: "center top",
+  },
+];
+
+const nationalTeam: Member[] = [
+  {
+    name: "George Gadelkarim",
+    role: "Head Coach",
+    photo: georgeGadelkarim,
+    objectPosition: "center top",
+  },
+  {
+    name: "Isa Usupov",
+    role: "Vice-President",
+    photo: isaUsupov,
     objectPosition: "center top",
   },
 ];
@@ -122,8 +146,38 @@ const Board = () => {
           </AnimatedSection>
 
           {/* Other board members – grid */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
             {members.map((member, i) => (
+              <AnimatedSection key={member.name} delay={i * 0.1}>
+                <div className="border border-border p-6 hover-lift group text-center h-full">
+                  <div className="w-24 h-24 bg-muted flex items-center justify-center mb-5 mx-auto overflow-hidden rounded-full">
+                    {member.photo ? (
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: member.objectPosition || "center top" }}
+                      />
+                    ) : (
+                      <User size={28} className="text-muted-foreground" />
+                    )}
+                  </div>
+                  <p className="font-body text-primary text-xs font-semibold uppercase tracking-wider mb-2">
+                    {member.role}
+                  </p>
+                  <h3 className="font-heading text-xl text-foreground">{member.name}</h3>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* National Team */}
+          <AnimatedSection>
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-4">National Team</h2>
+            <div className="red-accent-line mb-8" />
+          </AnimatedSection>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {nationalTeam.map((member, i) => (
               <AnimatedSection key={member.name} delay={i * 0.1}>
                 <div className="border border-border p-6 hover-lift group text-center h-full">
                   <div className="w-24 h-24 bg-muted flex items-center justify-center mb-5 mx-auto overflow-hidden rounded-full">
