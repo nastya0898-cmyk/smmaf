@@ -3,6 +3,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { User, ChevronDown, ChevronUp } from "lucide-react";
 
 import luigiPerillo from "@/assets/board-luigi-perillo.png";
+import isaUsupov from "@/assets/board-isa-yusupov.png";
 import ivanMusardoGracco from "@/assets/board-ivan-musardo-gracco.jpeg";
 import albertoBastianelli from "@/assets/board-alberto-bastianelli.jpeg";
 import giovanniParisi from "@/assets/board-giovanni-parisi.jpeg";
@@ -15,6 +16,11 @@ type Member = {
 };
 
 const members: Member[] = [
+  {
+    name: "Isa Usupov",
+    role: "Vice-President",
+    photo: isaUsupov,
+  },
   {
     name: "Maurizio Niceta",
     role: "Director of the Ticino Region",
@@ -110,7 +116,7 @@ const Board = () => {
           </AnimatedSection>
 
           {/* Other board members – grid */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {members.map((member, i) => (
               <AnimatedSection key={member.name} delay={i * 0.1}>
                 <div className="border border-border p-6 hover-lift group text-center h-full">
