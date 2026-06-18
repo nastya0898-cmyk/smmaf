@@ -2,6 +2,9 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { User } from "lucide-react";
 
 import luigiPerillo from "@/assets/board-luigi-perillo.png";
+import ivanMusardoGracco from "@/assets/board-ivan-musardo-gracco.jpeg";
+import albertoBastianelli from "@/assets/board-alberto-bastianelli.jpeg";
+import giovanniParisi from "@/assets/board-giovanni-parisi.jpeg";
 
 type Member = {
   name: string;
@@ -17,17 +20,17 @@ const members: Member[] = [
   {
     name: "Ivan Musardo Gracco",
     role: "Director of the German-speaking Switzerland Region",
-    photo: "/Director%20of%20the%20German-speaking%20Switzerland%20Region%20-%20Ivan%20Musardo%20Gracco.jpeg",
+    photo: ivanMusardoGracco,
   },
   {
     name: "Alberto Bastianelli",
     role: "Member of the Ethics Commission",
-    photo: "/Member%20of%20the%20Ethics%20Commission%20-%20Alberto%20Bastianelli.jpeg",
+    photo: albertoBastianelli,
   },
   {
     name: "Giovanni Tommaso Parisi",
     role: "Treasurer",
-    photo: "/Giovanni%20Tommaso%20Parisi%20-%20Treasurer.jpeg",
+    photo: giovanniParisi,
   },
 ];
 
