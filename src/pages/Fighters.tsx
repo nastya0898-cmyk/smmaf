@@ -7,6 +7,8 @@ import viktorKyshko from "@/assets/fighter-viktor-kyshko.png";
 import vincentYerly from "@/assets/fighter-vincent-yerly.png";
 import ruslanStalchenko from "@/assets/fighter-ruslan-stalchenko.jpg";
 import luigiPerillo from "@/assets/board-luigi-perillo.png";
+import isaUsupov from "@/assets/board-isa-usupov.png";
+import georgeGadelkarim from "@/assets/board-george-gadelkarim.jpeg";
 import donovanNtumba from "@/assets/fighter-donovan-ntumba.png";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
@@ -24,7 +26,7 @@ const fighters: Fighter[] = [
   { name: "Vincent Yerly", results: "World and European champion", flag: "🇨🇭", level: "Elite", age: "Senior", photo: vincentYerly },
   { name: "Ruslan Stalchenko", results: "Vice-European champion", flag: "🇨🇭", level: "Elite", age: "Senior", photo: ruslanStalchenko, photoPosition: "center 15%" },
   { name: "Adrian Aliu", results: "Bronze medalist", flag: "🇨🇭", level: "Elite", age: "Senior" },
-  { name: "George Gadelkarim", results: "First IMMAF male participant from Switzerland", flag: "🇨🇭", level: "Elite", age: "Senior" },
+  { name: "George Gadelkarim", results: "First IMMAF male participant from Switzerland", flag: "🇨🇭", level: "Elite", age: "Senior", photo: georgeGadelkarim, photoPosition: "center top" },
   { name: "Viktor Kyshko", results: "Category Youth", flag: "🇨🇭", level: "Amateur", age: "Youth", photo: viktorKyshko },
   { name: "Yanis Verissimo", results: "Category Senior", flag: "🇨🇭", level: "Amateur", age: "Senior" },
   { name: "Donovan Ntumba", results: "Category Senior", flag: "🇨🇭", level: "Amateur", age: "Senior", photo: donovanNtumba },
@@ -33,6 +35,8 @@ const fighters: Fighter[] = [
 
 const leadership = [
   { name: "Luigi Perillo", role: "President", photo: luigiPerillo as string | undefined, photoPosition: "30% 25%" },
+  { name: "Isa Usupov", role: "Vice-President", photo: isaUsupov as string | undefined, photoPosition: "center top" },
+  { name: "George Gadelkarim", role: "Head Coach", photo: georgeGadelkarim as string | undefined, photoPosition: "center top" },
 ];
 
 const pathway = ["Youth", "Amateur", "Elite", "National Team", "International Competition"];
