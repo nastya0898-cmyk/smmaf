@@ -4,6 +4,7 @@ import { User, ChevronDown, ChevronUp } from "lucide-react";
 
 import luigiPerillo from "@/assets/board-luigi-perillo.png";
 import isaUsupov from "@/assets/board-isa-usupov.png";
+import georgeGadelkarim from "@/assets/board-george-gadelkarim.jpeg";
 import ivanMusardoGracco from "@/assets/board-ivan-musardo-gracco.jpeg";
 import albertoBastianelli from "@/assets/board-alberto-bastianelli.jpeg";
 import giovanniParisi from "@/assets/board-giovanni-parisi.jpeg";
@@ -52,6 +53,12 @@ const members: Member[] = [
   {
     name: "Marcos Simões",
     role: "Director of the French-speaking Switzerland Region",
+  },
+  {
+    name: "George Gadelkarim",
+    role: "Head Coach",
+    photo: georgeGadelkarim,
+    objectPosition: "center top",
   },
   {
     name: "Anna Repchuk",
