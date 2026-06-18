@@ -120,7 +120,7 @@ const Fighters = () => {
             <div className="red-accent-line mx-auto mb-4" />
             <h2 className="font-heading text-3xl md:text-4xl text-foreground">Leadership</h2>
           </div>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {leadership.map((p, i) => (
               <AnimatedSection key={p.name} delay={i * 0.08}>
                 <div className="border border-border bg-card overflow-hidden hover-lift">
