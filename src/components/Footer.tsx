@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Mail } from "lucide-react";
-import swissFlag from "@/assets/swiss-flag.png";
+import fullLogo from "@/assets/smmaf-full-logo.png";
 
 const Footer = () => (
   <footer className="bg-accent text-accent-foreground">
     <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <img src={swissFlag} alt="Swiss flag" className="w-8 h-8 object-contain" />
-            <span className="font-heading text-xl tracking-wider">SWISS MMA</span>
+          <div className="mb-4">
+            <img src={fullLogo} alt="SMMAF" className="h-12 w-auto object-contain" />
           </div>
           <p className="font-body text-accent-foreground/60 text-sm leading-relaxed">
             The Swiss Mixed Martial Arts Federation — developing elite fighters and promoting the sport across Switzerland.
