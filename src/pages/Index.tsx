@@ -1,13 +1,30 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Shield, Trophy, Users, ChevronDown, Flame, Target, Swords } from "lucide-react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 import fighterDetail from "@/assets/fighter-detail.jpg";
 import trainingGym from "@/assets/training-gym.jpg";
 import smmafLogo from "@/assets/smmaf-logo.png";
 import smmafLogoText from "@/assets/smmaf-logo-text.png";
 import AnimatedSection from "@/components/AnimatedSection";
+
+const galleryPhotos = [
+  "WhatsApp Image 2026-06-22 at 21.18.47.jpeg",
+  "WhatsApp Image 2026-06-22 at 21.18.48.jpeg",
+  "Без названия (1200 x 1600 пикс.).png",
+  "Дизайн без названия (2).png",
+  "дзтл.jpeg",
+  "длоипщд.png",
+  "дрщо.png",
+  "дтидшт.jpeg",
+  "оиодиюд.jpeg",
+  "фук5грны.png",
+  "юдтлж.png",
+  "юлооид.jpeg",
+  "ярпя.png",
+];
 
 const stats = [
   { num: "50+", label: "Athletes", icon: Users },
@@ -35,6 +52,7 @@ const pillars = [
 ];
 
 const Index = () => {
+  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
@@ -207,6 +225,56 @@ const Index = () => {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* ═══════════════ GALLERY ═══════════════ */}
+      <section className="section-padding bg-background">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection className="text-center mb-16">
+            <div className="red-accent-line mx-auto mb-4" />
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground">Gallery</h2>
+            <p className="font-body text-muted-foreground mt-4 max-w-lg mx-auto text-sm">
+              Moments from Swiss MMA events and training sessions.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {galleryPhotos.map((photo, i) => (
+              <AnimatedSection key={i} delay={i * 0.05}>
+                <button
+                  onClick={() => setLightboxImg(photo)}
+                  className="relative overflow-hidden group aspect-square block w-full"
+                >
+                  <img
+                    src={`/галерея/${encodeURIComponent(photo)}`}
+                    alt={`Gallery ${i + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-10 h-10 border border-white/60 flex items-center justify-center">
+                      <span className="text-white text-lg font-heading">+</span>
+                    </div>
+                  </div>
+                </button>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      <Dialog open={!!lightboxImg} onOpenChange={() => setLightboxImg(null)}>
+        <DialogContent className="max-w-5xl p-0 bg-black border-white/10">
+          {lightboxImg && (
+            <img
+              src={`/галерея/${encodeURIComponent(lightboxImg)}`}
+              alt="Gallery"
+              className="w-full h-auto max-h-[90vh] object-contain"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* ═══════════════ MEMBERSHIP ═══════════════ */}
       <section id="membership" className="section-padding bg-accent">
