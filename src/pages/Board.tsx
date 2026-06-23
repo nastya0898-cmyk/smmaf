@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { User, ChevronDown, ChevronUp } from "lucide-react";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 import luigiPerillo from "@/assets/board-luigi-perillo.png";
 import isaUsupov from "@/assets/board-isa-usupov.png";
@@ -18,56 +19,64 @@ type Member = {
 };
 
 const members: Member[] = [
-  {
-    name: "Isa Usupov",
-    role: "Vice-President",
-    photo: isaUsupov,
-    objectPosition: "center top",
-  },
-  {
-    name: "Ivan Musardo Gracco",
-    role: "Director of the German-speaking Switzerland Region",
-    photo: ivanMusardoGracco,
-    objectPosition: "center top",
-  },
-  {
-    name: "Marcos Simões",
-    role: "Director of the French-speaking Switzerland Region",
-  },
-  {
-    name: "Maurizio Niceta",
-    role: "Director of the Italian-speaking Switzerland Region",
-  },
-  {
-    name: "George Gadelkarim",
-    role: "Head Coach",
-    photo: georgeGadelkarim,
-    objectPosition: "center top",
-  },
-  {
-    name: "Jordan Aigner",
-    role: "Technical Director",
-  },
-  {
-    name: "Alberto Bastianelli",
-    role: "Member of the Ethics Commission",
-    photo: albertoBastianelli,
-    objectPosition: "center top",
-  },
-  {
-    name: "Giovanni Tommaso Parisi",
-    role: "Treasurer",
-    photo: giovanniParisi,
-    objectPosition: "center top",
-  },
-  {
-    name: "Anna Repchuk",
-    role: "General Secretary",
-    photo: annaRepchuk,
-    objectPosition: "center top",
-  },
+  { name: "Isa Usupov", role: "Vice-President", photo: isaUsupov, objectPosition: "center top" },
+  { name: "Ivan Musardo Gracco", role: "Director of the German-speaking Switzerland Region", photo: ivanMusardoGracco, objectPosition: "center top" },
+  { name: "Marcos Simões", role: "Director of the French-speaking Switzerland Region" },
+  { name: "Maurizio Niceta", role: "Director of the Italian-speaking Switzerland Region" },
+  { name: "George Gadelkarim", role: "Head Coach", photo: georgeGadelkarim, objectPosition: "center top" },
+  { name: "Jordan Aigner", role: "Technical Director" },
+  { name: "Alberto Bastianelli", role: "Member of the Ethics Commission", photo: albertoBastianelli, objectPosition: "center top" },
+  { name: "Marilson Paulo Da Silva", role: "Member of National Technical Commission and Events and Competitions Commission" },
+  { name: "Giovanni Tommaso Parisi", role: "Treasurer", photo: giovanniParisi, objectPosition: "center top" },
+  { name: "Anna Repchuk", role: "General Secretary", photo: annaRepchuk, objectPosition: "center top" },
 ];
 
+const commissions = [
+  {
+    name: "National Technical Commission",
+    members: ["Marilson Paulo Da Silva", "Tbc"],
+  },
+  {
+    name: "National Referees and Judges Commission",
+    members: ["Tbc", "Tbc"],
+  },
+  {
+    name: "Medical Commission",
+    members: ["Tbc", "Tbc"],
+  },
+  {
+    name: "Ethics and Disciplinary Commission",
+    members: ["Alberto Bastianelli", "Tbc"],
+  },
+  {
+    name: "Anti-Doping and Integrity Commission",
+    members: ["Tbc", "Tbc"],
+  },
+  {
+    name: "Development and Education Commission",
+    members: ["Tbc", "Tbc"],
+  },
+  {
+    name: "Events and Competitions Commission",
+    members: ["Marilson Paulo Da Silva", "Tbc"],
+  },
+  {
+    name: "Marketing, Media and Sponsorship Commission",
+    members: ["Tbc", "Tbc"],
+  },
+  {
+    name: "Athletes' Commission",
+    members: ["George Gadelkarim", "Tbc"],
+  },
+  {
+    name: "Electoral and Nominations Commission",
+    members: ["Tbc", "Tbc"],
+  },
+  {
+    name: "Finance and Audit Commission",
+    members: ["Tbc", "Tbc"],
+  },
+];
 
 const Board = () => {
   const [expanded, setExpanded] = useState(false);
@@ -100,11 +109,9 @@ const Board = () => {
               <h2 className="font-heading text-3xl lg:text-4xl text-foreground mb-6">Luigi Perillo</h2>
 
               <div className="font-body text-muted-foreground text-sm leading-relaxed space-y-4">
-                {/* Always visible – first 2 paragraphs */}
                 <p>Luigi Perillo is the Founder and President of the Swiss Mixed Martial Arts Federation (SMMAF), the national governing body for amateur Mixed Martial Arts in Switzerland and the organization affiliated with the International Mixed Martial Arts Federation (IMMAF).</p>
                 <p>As President of SMMAF and IMMAF Switzerland, he leads the development, governance, and international representation of amateur MMA throughout the country, working closely with clubs, athletes, coaches, officials, and international stakeholders. Under his leadership, SMMAF has established itself as the central organization for MMA in Switzerland, bringing together previously fragmented regional MMA communities into a unified national structure.</p>
 
-                {/* Collapsible content */}
                 <div
                   className="space-y-4 overflow-hidden transition-all duration-500 ease-in-out"
                   style={{ maxHeight: expanded ? "2000px" : "0px", opacity: expanded ? 1 : 0 }}
@@ -121,26 +128,21 @@ const Board = () => {
                 </div>
               </div>
 
-              {/* Toggle button */}
               <div className="clear-both mt-6">
                 <button
                   onClick={() => setExpanded(!expanded)}
                   className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary tracking-widest uppercase hover:opacity-70 transition-opacity"
                 >
-                  {expanded ? (
-                    <>Show Less <ChevronUp size={16} /></>
-                  ) : (
-                    <>Read More <ChevronDown size={16} /></>
-                  )}
+                  {expanded ? (<>Show Less <ChevronUp size={16} /></>) : (<>Read More <ChevronDown size={16} /></>)}
                 </button>
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Other board members – grid */}
+          {/* Board members grid */}
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
             {members.map((member, i) => (
-              <AnimatedSection key={member.name} delay={i * 0.1}>
+              <AnimatedSection key={member.name} delay={i * 0.05}>
                 <div className="border border-border p-6 hover-lift group text-center h-full">
                   <div className="w-24 h-24 bg-muted flex items-center justify-center mb-5 mx-auto overflow-hidden rounded-full">
                     {member.photo ? (
@@ -162,6 +164,31 @@ const Board = () => {
               </AnimatedSection>
             ))}
           </div>
+
+          {/* Commissions */}
+          <AnimatedSection>
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-4">Commissions</h2>
+            <div className="red-accent-line mb-6" />
+            <Accordion type="multiple" className="border border-border divide-y divide-border">
+              {commissions.map((commission) => (
+                <AccordionItem key={commission.name} value={commission.name} className="border-0">
+                  <AccordionTrigger className="px-6 font-heading text-lg text-foreground tracking-wide hover:no-underline hover:text-primary transition-colors">
+                    {commission.name}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-5">
+                    <ul className="space-y-2">
+                      {commission.members.map((name, i) => (
+                        <li key={i} className="flex items-center gap-3 font-body text-sm text-muted-foreground">
+                          <span className="w-5 h-5 border border-border flex-shrink-0" />
+                          <span className={name === "Tbc" ? "italic text-muted-foreground/50" : ""}>{name}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </AnimatedSection>
 
         </div>
       </section>
