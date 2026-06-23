@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Mail } from "lucide-react";
-import fullLogo from "@/assets/smmaf-logo-text.png";
+import fullLogo from "@/assets/smmaf-full-logo.png";
 
 const Footer = () => (
   <footer className="bg-accent text-accent-foreground">

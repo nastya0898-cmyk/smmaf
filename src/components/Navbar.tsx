@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import fullLogo from "@/assets/smmaf-logo-text.png";
+import fullLogo from "@/assets/smmaf-full-logo.png";
 
 const navLinks: { to: string; label: string; isHash?: boolean }[] = [
   { to: "/", label: "Home" },
@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link to="/" className="flex items-center">
-            <img src={fullLogo} alt="SMMAF" className="h-10 lg:h-12 w-auto object-contain" />
+            <img src={fullLogo} alt="SMMAF" className="h-12 lg:h-14 w-auto object-contain" />
           </Link>
 
           {/* Desktop nav */}
