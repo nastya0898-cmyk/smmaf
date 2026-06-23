@@ -7,7 +7,6 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import fighterDetail from "@/assets/fighter-detail.jpg";
 import trainingGym from "@/assets/training-gym.jpg";
 import smmafLogo from "@/assets/smmaf-logo.png";
-import smmafLogoText from "@/assets/smmaf-logo-text.png";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const galleryPhotos = [
@@ -146,7 +145,7 @@ const Index = () => {
           {/* Text side */}
           <div className="flex items-center px-8 md:px-16 lg:px-20 py-16 lg:py-24">
             <AnimatedSection delay={0.2}>
-              <img src={smmafLogoText} alt="SMMAF Logo" className="w-24 mb-4" />
+              <img src="/Full Logo.png" alt="SMMAF Logo" className="w-36 mb-4" />
               <div className="red-accent-line mb-6" />
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground leading-none mb-6">
                 The Swiss
