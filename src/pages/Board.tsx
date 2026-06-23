@@ -26,7 +26,7 @@ const members: Member[] = [
   { name: "George Gadelkarim", role: "Head Coach", photo: georgeGadelkarim, objectPosition: "center top" },
   { name: "Jordan Aigner", role: "Technical Director" },
   { name: "Alberto Bastianelli", role: "Member of the Ethics Commission", photo: albertoBastianelli, objectPosition: "center top" },
-  { name: "Marilson Paulo Da Silva", role: "Member of National Technical Commission and Events and Competitions Commission" },
+  { name: "Marilson Paulo Da Silva", role: "Member of National Technical Commission and Events and Competitions Commission", photo: "/Marilson Paulo Da Silva.jpeg", objectPosition: "center top" },
   { name: "Giovanni Tommaso Parisi", role: "Treasurer", photo: giovanniParisi, objectPosition: "center top" },
   { name: "Anna Repchuk", role: "General Secretary", photo: annaRepchuk, objectPosition: "center top" },
 ];
