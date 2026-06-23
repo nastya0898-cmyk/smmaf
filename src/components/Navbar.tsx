@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link to="/" className="flex items-center">
-            <img src={fullLogo} alt="SMMAF" className="h-12 lg:h-14 w-auto object-contain" />
+            <img src={fullLogo} alt="SMMAF" className="h-8 lg:h-10 w-auto object-contain" />
           </Link>
 
           {/* Desktop nav */}
