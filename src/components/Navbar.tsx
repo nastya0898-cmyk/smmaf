@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import fullLogo from "@/assets/smmaf-full-logo.png";
+import fullLogo from "@/assets/smmaf-logo-text.png";
 
 const navLinks: { to: string; label: string; isHash?: boolean }[] = [
   { to: "/", label: "Home" },
