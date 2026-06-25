@@ -22,7 +22,7 @@ const members: Member[] = [
   { name: "Isa Usupov", role: "Vice-President", photo: isaUsupov, objectPosition: "center top" },
   { name: "Ivan Musardo Gracco", role: "Director of the German-speaking Switzerland Region", photo: ivanMusardoGracco, objectPosition: "center top" },
   { name: "Marcos Simões", role: "Director of the French-speaking Switzerland Region" },
-  { name: "Maurizio Niceta", role: "Director of the Italian-speaking Switzerland Region" },
+  { name: "Maurizio Niceta", role: "Director of the Italian-speaking Switzerland Region", photo: "/Мауризио Нисета.jpeg", objectPosition: "center top" },
   { name: "George Gadelkarim", role: "Head Coach", photo: georgeGadelkarim, objectPosition: "center top" },
   { name: "Jordan Aigner", role: "Technical Director" },
   { name: "Alberto Bastianelli", role: "Member of the Ethics Commission", photo: albertoBastianelli, objectPosition: "center top" },
