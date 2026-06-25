@@ -71,22 +71,30 @@ const Register = () => {
       });
       if (error) throw error;
 
-      // Fire-and-forget confirmation + admin notification (works once email domain is set up)
-      void supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "registration-confirmation",
-          recipientEmail: data.email,
-          idempotencyKey: `reg-confirm-${id}`,
-          templateData: {
-            name: data.fullName,
-            eventTitle: event?.title ?? "an SMMAF event",
-            eventDate: event?.date ?? "",
-            eventLocation: event?.location ?? "",
-          },
-        },
+      await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "7a35a86a-ee1a-497b-abe2-7a46ba7e2265",
+          subject: `New Event Registration: ${data.fullName}`,
+          from_name: data.fullName,
+          email: data.email,
+          message: [
+            `Event: ${event?.title ?? data.eventId}`,
+            `Role: ${data.role}`,
+            `Name: ${data.fullName}`,
+            `Date of Birth: ${data.dob}`,
+            `Gym / Club: ${data.gym || "—"}`,
+            `Weight Class: ${data.weightClass || "—"}`,
+            `Email: ${data.email}`,
+            `Phone: ${data.phone || "—"}`,
+            `Notes: ${data.notes || "—"}`,
+          ].join("\n"),
+          botcheck: false,
+        }),
       });
 
-      toast.success("Registration submitted! Confirmation will be emailed to you.");
+      toast.success("Registration submitted! We will contact you shortly.");
       setForm({ ...form, fullName: "", dob: "", gym: "", weightClass: "", email: "", phone: "", notes: "" });
     } catch (err) {
       console.error(err);

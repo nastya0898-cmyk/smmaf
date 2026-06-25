@@ -92,11 +92,45 @@ const whatYouGet = [
 
 const Sponsor = () => {
   const [form, setForm] = useState({ company: "", contact: "", email: "", message: "", tier: "Silver" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! Our partnership team will contact you shortly.");
-    setForm({ company: "", contact: "", email: "", message: "", tier: "Silver" });
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "7a35a86a-ee1a-497b-abe2-7a46ba7e2265",
+          subject: `New Partnership Inquiry: ${form.company}`,
+          from_name: form.contact,
+          email: form.email,
+          message: [
+            `Company: ${form.company}`,
+            `Contact: ${form.contact}`,
+            `Email: ${form.email}`,
+            `Tier interest: ${form.tier}`,
+            ``,
+            `Message:`,
+            form.message,
+          ].join("\n"),
+          botcheck: false,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success("Thank you! Our partnership team will contact you shortly.");
+        setForm({ company: "", contact: "", email: "", message: "", tier: "Silver" });
+      } else {
+        toast.error(data.message ?? "Failed to send. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to send. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const scrollToForm = () => {
@@ -305,10 +339,11 @@ const Sponsor = () => {
               </div>
               <button
                 type="submit"
-                className="bg-primary text-primary-foreground font-body font-semibold text-sm tracking-wider uppercase px-8 py-4 hover:bg-primary/90 transition-colors w-full flex items-center justify-center gap-2"
+                disabled={submitting}
+                className="bg-primary text-primary-foreground font-body font-semibold text-sm tracking-wider uppercase px-8 py-4 hover:bg-primary/90 transition-colors w-full flex items-center justify-center gap-2 disabled:opacity-60"
               >
-                Request Partnership
-                <ArrowRight size={16} />
+                {submitting ? "Sending..." : "Request Partnership"}
+                {!submitting && <ArrowRight size={16} />}
               </button>
             </form>
           </AnimatedSection>
